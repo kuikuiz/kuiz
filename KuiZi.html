@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #ffc8dd;
+            color: #2b2b2b;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: #ffafcc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            display: block;
+            padding: 16px 28px;
+            color: #3a3a3a;
+            text-decoration: none;
+            font-size: 17px;
+            transition: 0.25s;
+        }
+        nav a:hover {
+            background-color: #ff99bb;
+            color: #ffffff;
+        }
+
+        .container {
+           max-width: 1480px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background-color: #ffb6c1;
+            padding: 36px;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        h1, h2 {
+            margin-bottom: 18px;
+            color: #1a1a1a;
+        }
+        p {
+            line-height: 1.7;
+            margin-bottom: 14px;
+            color: #2b2b2b;
+        }
+
+        /* 作品画廊网格（模仿Itch.io） */
+        .gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:24px;
+}
+
+        .game-card {
+        
+    min-width:260px;
+
+            background: #ffb6c1;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            transition: 0.25s ease;
+            text-decoration: none;
+            color: inherit;
+            height: 360px;
+        }
+        .game-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .game-thumb {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display:block;
+        }
+        .game-info {
+            padding: 16px;
+        }
+        .game-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color:#111;
+        }
+        .game-tags {
+            display:flex;
+            flex-wrap: wrap;
+            gap:6px;
+            margin:10px 0;
+        }
+        .tag {
+            font-size:12px;
+            background:#ffa8c5;
+            padding:3px 8px;
+            border-radius:6px;
+        }
+        .game-desc {
+            font-size:14px;
+            color:#333;
+        }
+
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                padding: 12px 16px;
+                font-size: 15px;
+            }
+            .card {
+                padding: 22px;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#home" data-target="home">首页</a>
+            <a href="#about" data-target="about">关于我</a>
+            <a href="#contact" data-target="contact">联系作者</a>
+            <a href="#donate" data-target="donate">打赏支持</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 首页 -->
+        <section id="home" class="page-section active">
+            <div class="card">
+                <h1>👋 欢迎来到我的网页</h1>
+                <p>哈喽宝贝们，介于有的宝宝跨不了国外，我就做了一个可以下载视觉小说的网站呀
+                    小说无偿提供下载！！！
+                </p>
+                <p>另外，我提供我用机翻翻译好的游戏（仅限PC哦）</p>
+            </div>
+
+            <div class="card">
+                <h2>📖 我原创小说作品</h2>
+                <div class="gallery-grid">
+                    <!-- 作品卡片模板，直接复制整块新增更多作品 -->
+                    <a class="game-card" href="填入你的压缩包下载链接" target="_blank">
+                        <img class="game-thumb" src="填入封面图片地址" alt="作品封面">
+                        <div class="game-info">
+                            <div class="game-title">原创小说 ①</div>
+                            <div class="game-tags">
+                                <span class="tag">小说</span>
+                                <span class="tag">悬疑</span>
+                            </div>
+                            <div class="game-desc">简短作品介绍文字，压缩包内包含小说全文</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🎮 外网视觉小说（Itch.io）原版、机翻汉化解压包</h2>
+                <input type="text" id="searchInput" 
+                placeholder="输入名称搜索……（此处无效）" 
+                style="width:100%;padding:12px 16px;font-size:16px;border-radius:12px;
+                border:1px solid
+                #ffb6c1;margin-bottom:20px;">
+                <div class="gallery-grid">  <a class="game-card"href="jackknife.html">
+    <img class="game-thumb" src="Jack3.png" alt="杰克刀">
+    <div class="game-info">
+        <div class="game-title">杰克刀</div>
+        <div class="game-tags">
+            <span class="tag">视觉小说</span>
+            <span class="tag">机翻汉化</span>
+            <span class="tag">PC 苹果🍎</span>
+        </div>
+        <div class="game-desc">JACKKNIFE 是一款心理恐怖视觉小说，故事背景设定在美国荒凉的公路。你扮演一名孤独的搭便车者试图逃离你的过去，这时一位名叫杰克的迷人卡车司机向你提供了一段车程 但随着路程的开始，你感觉到你的救命恩人可能比你预想的要危险得多</div>
+    </div>
+</a>
+
+
+
+<div class="gallery-grid">
+                    <a class="game-card" href="Maneater.html">
+    <img class="game-thumb" src="Maneater.png" alt="">
+    <div class="game-info">
+        <div class="game-title">食人者</div>
+        <div class="game-tags">
+            <span class="tag">视觉小说</span>
+            <span class="tag">机翻汉化</span>
+            <span class="tag">PC 安卓</span>
+        </div>
+        <div class="game-desc">Maneater 当世界被恶魔占领时，你决定做一个负责任的小市民，待在家里。但你的女朋友似乎有其他计划。一个自私的计划</div>
+    </div>
+</a>
+
+
+
+<a class="game-card" href="14days.html">
+    <img class="game-thumb" src="14ds.png" alt="14 Days With You">
+    <div class="game-info">
+        <div class="game-title">与你共度的14天</div>
+        <div class="game-tags">
+            <span class="tag">视觉小说</span>
+            <span class="tag">机翻汉化</span>
+            <span class="tag">PC 苹果🍎</span>
+        </div>
+        <div class="game-desc">14 Days With You是一款恋爱向心理恐怖视觉小说。你回到海边小镇，邂逅少年Ren。短短十四天之内，你将看清他温柔外表之下偏执危险的一面，你的每一次选择，都会导向截然不同的结局</div>
+    </div>
+</a>
+
+<a class="game-card" href="insomnia.html">
+    <img class="game-thumb" src="insomnia.png" alt="insomnia">
+    <div class="game-info">
+        <div class="game-title">失眠</div>
+        <div class="game-tags">
+            <span class="tag">视觉小说 </span>
+            <span class="tag">都市传说</span>
+            <span class="tag">机翻汉化</span>
+            <span class="tag">PC 苹果🍎 安卓</span>
+        </div>
+        <div class="game-desc">你扮演一名性别中立的高中生，在卷入错误的人群后，平凡的生活发生了黑暗的转变 随着令人不安的谣言四起，你将面对一个带着格拉斯哥微笑的神秘男人</div>
+    </div>
+</a>
+<a class="game-card" href="killer-trait.html">
+    <img class="game-thumb" src="killer-trait.png" alt="Killer Trait">
+    <div class="game-info">
+        <div class="game-title">杀手特质</div>
+        <div class="game-tags">
+            <span class="tag">视觉小说</span>
+            <span class="tag">机翻汉化</span>
+            <span class="tag">PC 苹果🍎</span>
+        </div>
+        <div class="game-desc">你好不容易当上刑警，却遭上司背叛，被冤枉犯下重罪。走投无路之下，你只能和一名专杀恶徒的连环杀手结成盟友</div>
+    </div>
+</a>
+
+
+
+
+    </div>
+</a>
+                    </a>
+                </div>
+                <p style="margin-top:20px;font-size:14px;color:#555;">如有问题 请联系我</p>
+            </div>
+        </section>
+
+
+        <!-- 关于我 -->
+        <section id="about" class="page-section">
+            <div class="card">
+                <h1>ℹ️ 关于我</h1>
+                <p>我叫葵籽，你们也可以叫我“小葵”爱好是玩各种游戏呀。但平时我也很忙 你们可以向我投稿你们想要玩的视觉小说呀</p>
+                <p>创作风格：病娇恐怖 更新计划：一个月更新两次</p>
+            </div>
+        </section>
+
+        <!-- 联系作者 -->
+        <section id="contact" class="page-section">
+            <div class="card">
+                <h1>✉️ 联系作者</h1>
+                <p>社交账号：
+                    邮箱：
+                    私信渠道</p>
+            </div>
+        </section>
+
+        <!-- 打赏支持 -->
+        <section id="donate" class="page-section">
+            <div class="card">
+                <h1>💖 打赏支持</h1>
+                <p>如果喜欢我的原创视觉小说作品，可以打赏支持我的创作，非常感谢你的支持！</p>
+                <p style="font-size:14px;margin-top:10px;color:#555;">收款地址</p>
+            </div>
+        </section>
+    </div>
+<script>
+</script>
+</body>
+</html>
